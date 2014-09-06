@@ -24,6 +24,6 @@
     "testem": "0.6.18"
   },
   "dependencies": {
-
+    "envoodoo": "^2.0.1"
   }
 }
