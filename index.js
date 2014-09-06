@@ -6,6 +6,7 @@ var program = require('commander')
   , gulp    = require('gulp')
   , chalk   = require('chalk')
   , exec    = require('exec')
+  , pjson   = require('./package.json')
 
 var strings = {
   create: 'Creating new project',
@@ -35,7 +36,7 @@ function newProject(name) {
 }
 
 program
-  .version('0.0.0')
+  .version(pjson.version)
   .option('-q, --quiet', 'Hide logging information')
 
 program
