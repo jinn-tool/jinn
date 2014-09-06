@@ -18,8 +18,8 @@
   },
   "homepage": "",
   "devDependencies": {
-    "mocha": "1.21.4",
-    "testem": "0.6.18"
+    "mocha": "^1.21.4",
+    "testem": "^0.6.18"
   },
   "dependencies": {
     "envoodoo": "^2.0.1",
