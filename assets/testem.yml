@@ -4,3 +4,7 @@ launchers:
     protocol: tap
 launch_in_dev:
 - Node
+src_files:
+  - "lib/**/*.js"
+  - "test/**/*.spec.js"
+  - "index.js"
