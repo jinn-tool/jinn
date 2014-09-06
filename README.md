@@ -32,3 +32,9 @@ We use testem and mocha to provide a kick ass test environment. From the root
 of the project just run `npm test` and start adding tests to the test folder.
 Tests must be named `<somename>.spec.js` Testem will rerun tests whenever you
 add new test specs or save existing ones.
+
+### ES6 by default
+
+index.js contains the code necessary to bootstrap the rest of the app with
+the ability to write code in ES6 via the traceur project. See index.js for
+further information
