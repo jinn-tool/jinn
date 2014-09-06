@@ -1,0 +1,6 @@
+launchers:
+  Node:
+    command: node_modules/.bin/mocha test/**/*.spec.js
+    protocol: tap
+launch_in_dev:
+- Node
