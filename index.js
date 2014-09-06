@@ -29,8 +29,8 @@ function installDependencies(name) {
 function newProject(name) {
   notify(strings.create, name)
 
-  gulp.src(['assets/**/*', 'assets/.*'])
-    .pipe(gulp.dest(name))
+  gulp.src(['./assets/**/*', './assets/.*'])
+    .pipe(gulp.dest(__dirname + '/' + name))
     .on('end', installDependencies.bind(this, name))
 }
 
