@@ -31,5 +31,9 @@
   },
   "dependencies": {
     "testem": "^0.6.18"
+  },
+  "preferGlobal": "true",
+  "bin": {
+    "jinn" : "index.js"
   }
 }
