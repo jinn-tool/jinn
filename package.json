@@ -1,6 +1,6 @@
 {
   "name": "jinn",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A nodejs project scaffolding tool",
   "main": "index.js",
   "scripts": {
@@ -22,9 +22,7 @@
     "url": "https://github.com/digitalsadhu/jinn/issues"
   },
   "homepage": "https://github.com/digitalsadhu/jinn",
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.3.0",
