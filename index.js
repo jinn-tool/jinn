@@ -14,6 +14,11 @@ var strings = {
   complete: 'Done!'
 }
 
+var paths = {
+  basefiles: __dirname + '/assets/**/*',
+  dotfiles: __dirname + '/assets/.*'
+}
+
 function notify(message) {
   if (!program.quiet)
     console.log(chalk.green(message))
@@ -30,7 +35,7 @@ function installDependencies(name) {
 function newProject(name) {
   notify(strings.create, name)
 
-  gulp.src([__dirname + '/assets/**/*', __dirname + '/assets/.*'])
+  gulp.src([paths.basefiles, paths.dotfiles])
     .pipe(gulp.dest(process.cwd() + '/' + name))
     .on('end', installDependencies.bind(this, name))
 }
