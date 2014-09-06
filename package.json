@@ -1,0 +1,35 @@
+{
+  "name": "jinn",
+  "version": "0.0.0",
+  "description": "A nodejs project scaffolding tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalsadhu/jinn.git"
+  },
+  "keywords": [
+    "scaffold",
+    "nodejs",
+    "build",
+    "tool"
+  ],
+  "author": "Richard Walker <digitalsadhu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digitalsadhu/jinn/issues"
+  },
+  "homepage": "https://github.com/digitalsadhu/jinn",
+  "devDependencies": {
+    "chalk": "^0.5.1",
+    "commander": "^2.3.0",
+    "exec": "^0.1.2",
+    "gulp": "^3.8.7",
+    "mocha": "^1.21.4"
+  },
+  "dependencies": {
+    "testem": "^0.6.18"
+  }
+}
