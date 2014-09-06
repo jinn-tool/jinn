@@ -46,7 +46,7 @@ program
 
 program
   .command('new <name>')
-  .description('scaffold out a new app in the current directory')
+  .description('Scaffold out a new app with given name')
   .action(newProject)
 
 program.parse(process.argv);
