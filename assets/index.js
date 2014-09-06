@@ -10,3 +10,5 @@ traceur.require.makeDefault(function(filename) {
   return filename.indexOf('node_modules') === -1
 })
 
+//any files included will be compiled using traceur es6 compiler
+// eg. require('lib/app.js')
