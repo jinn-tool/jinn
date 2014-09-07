@@ -46,14 +46,14 @@ We include various metafiles with project scaffolds. Browse the assets folder in
 - .jshintrc and .jshintignore
   - jshint setup, suits our tastes, tweak to your own needs
 - .editorconfig
-  - http://editorconfig.org/ 
+  - [editorconfig](http://editorconfig.org/)
 - .env and .env-example
-  - we use .env files to manage project environment variables. We use the module envoodoo to include these in index.js
+  - we use .env files to manage project environment variables. We use the module [envoodoo](https://www.npmjs.org/package/envoodoo) to include these in index.js
   - .env files usually include sensitive information such as database connection details so it is ignored in .gitignore so you should commit the .env-example file to the repo with example values instead
 
 ### Testing
 
-We use testem and mocha to provide a kick ass test environment. From the root
+We use [testem](https://github.com/airportyh/testem) and [mocha](http://visionmedia.github.io/mocha/) to provide a kick ass test environment. From the root
 of the project just run:
 ```
 npm test
@@ -71,5 +71,5 @@ Testem will rerun tests whenever you add new test specs or save existing ones.
 ### ES6 by default
 
 index.js contains the code necessary to bootstrap the rest of the app with
-the ability to write code in ES6 via the traceur project. See index.js for
+the ability to write code in ES6 via the [traceur](https://github.com/google/traceur-compiler) project. See index.js for
 further information
