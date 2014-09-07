@@ -19,12 +19,12 @@ the project files necessary to get going with a basic node project.
 
 ### Directory structure
 
-- <projectname>
-  - test
-    - *.spec.js
-  - lib
-    - *.js
-  - index.js
+projectname
+  test
+    *.spec.js
+  lib
+    *.js
+  index.js
 
 ### Testing
 
