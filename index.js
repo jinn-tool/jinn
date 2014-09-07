@@ -33,7 +33,7 @@ function installDependencies(name) {
 }
 
 function newProject(name) {
-  notify(strings.create, name)
+  notify(strings.create)
 
   gulp.src([paths.basefiles, paths.dotfiles])
     .pipe(gulp.dest(process.cwd() + '/' + name))
