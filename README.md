@@ -18,14 +18,14 @@ the project files necessary to get going with a basic node project.
 ## Conventions
 
 ### Directory structure
-
-projectname
-  test
-    *.spec.js
-  lib
-    *.js
-  index.js
-
+```
+- projectname
+  - test
+    - *.spec.js
+  - lib
+    - *.js
+  - index.js
+```
 ### Testing
 
 We use testem and mocha to provide a kick ass test environment. From the root
