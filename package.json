@@ -1,6 +1,6 @@
 {
   "name": "jinn",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "A nodejs project scaffolding tool",
   "main": "index.js",
   "scripts": {
