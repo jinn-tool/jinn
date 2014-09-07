@@ -1,3 +1,7 @@
+[![NPM](https://nodei.co/npm/jinn.png?compact=true)](https://nodei.co/npm/jinn/)
+
+[![Media Suite](http://mediasuite.co.nz/ms-badge.png)](http://mediasuite.co.nz)
+
 jinn
 ====
 
