@@ -18,6 +18,7 @@
   },
   "homepage": "",
   "devDependencies": {
+    "chai": "^1.9.1",
     "mocha": "^1.21.4",
     "mocha-traceur": "^1.0.0",
     "testem": "^0.6.18"
