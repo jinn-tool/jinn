@@ -50,4 +50,4 @@ program
   .description('Scaffold out a new app with given name')
   .action(newProject)
 
-program.parse(process.argv);
+program.parse(process.argv)

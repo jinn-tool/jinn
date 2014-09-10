@@ -4,7 +4,7 @@
 require('envoodoo')()
 
 //Make Ecmascript 6 features available via transpilation
-var traceur = require('traceur');
+var traceur = require('traceur')
 traceur.require.makeDefault(function(filename) {
   // don't transpile our dependencies, just our app
   return filename.indexOf('node_modules') === -1
