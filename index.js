@@ -16,7 +16,8 @@ var strings = {
 
 var paths = {
   basefiles: __dirname + '/assets/**/*',
-  dotfiles: __dirname + '/assets/.*'
+  dotfiles: __dirname + '/assets/.*',
+  gitignore: __dirname + '/assets/.gitignore'
 }
 
 function notify(message) {
@@ -35,7 +36,7 @@ function installDependencies(name) {
 function newProject(name) {
   notify(strings.create)
 
-  gulp.src([paths.basefiles, paths.dotfiles])
+  gulp.src([paths.basefiles, paths.dotfiles, paths.gitignore])
     .pipe(gulp.dest(process.cwd() + '/' + name))
     .on('end', installDependencies.bind(this, name))
 }
