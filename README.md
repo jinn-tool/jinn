@@ -13,7 +13,7 @@ A nodejs project scaffolding tool
 npm install -g jinn
 ```
 
-## Usage
+## Basic usage
 
 ```
 jinn new <projectname>
@@ -22,6 +22,28 @@ cd <projectname>
 
 This will create a project directory called <projectname> and scaffold up
 the project files necessary to get going with a basic node project.
+
+## Commands
+
+### New
+
+`new <projectname>`
+
+Scaffold up a new project with given `<projectname>`
+
+## Options
+
+### ES6
+
+`-e, --esnext`
+
+Add esnext support via the traceur compilier
+
+### Help
+
+`-h, --help`
+
+Show help documentation
 
 ## Conventions
 
@@ -68,8 +90,3 @@ Tests must be named:
 
 Testem will rerun tests whenever you add new test specs or save existing ones.
 
-### ES6 by default
-
-index.js contains the code necessary to bootstrap the rest of the app with
-the ability to write code in ES6 via the [traceur](https://github.com/google/traceur-compiler) project. See index.js for
-further information
