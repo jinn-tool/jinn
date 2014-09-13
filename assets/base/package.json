@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "testem"
+    "test": "testem",
+    "jshint": "jshint ."
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "homepage": "",
   "devDependencies": {
     "chai": "^1.9.1",
+    "jshint": "^2.5.5",
     "mocha": "^1.21.4",
     "testem": "^0.6.18"
   },
