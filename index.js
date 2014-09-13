@@ -8,16 +8,17 @@ var program = require('commander')
   , exec    = require('exec')
   , pjson   = require('./package.json')
 
-var strings = {
+var messages = {
   create: 'Creating new project',
   install: 'Installing dependencies',
-  complete: 'Done!'
+  complete: 'Done!',
+  esnext: 'including esnext'
 }
 
-var paths = {
-  basefiles: __dirname + '/assets/**/*',
-  dotfiles: __dirname + '/assets/.*',
-  gitignore: __dirname + '/assets/.gitignore'
+var sources = {
+  base: __dirname + '/assets/base/**/*',
+  esnext: __dirname + '/assets/esnext/**/*'
+  // gitignore: __dirname + '/assets/.gitignore'
 }
 
 function notify(message) {
@@ -26,17 +27,23 @@ function notify(message) {
 }
 
 function installDependencies(name) {
-  notify(strings.install)
+  notify(messages.install)
 
   exec('cd ' + name + ' && npm install', function () {
-    notify(strings.complete)
+    notify(messages.complete)
   })
 }
 
 function newProject(name) {
-  notify(strings.create)
+  notify(messages.create)
+  var paths = [sources.base]
 
-  gulp.src([paths.basefiles, paths.dotfiles, paths.gitignore])
+  if (program.esnext) {
+    notify(messages.esnext)
+    paths.push(sources.esnext)
+  }
+
+  gulp.src(paths, {dot: true})
     .pipe(gulp.dest(process.cwd() + '/' + name))
     .on('end', installDependencies.bind(this, name))
 }
@@ -44,6 +51,7 @@ function newProject(name) {
 program
   .version(pjson.version)
   .option('-q, --quiet', 'Hide logging information')
+  .option('-e, --esnext', 'Add esnext support through the traceur compiler')
 
 program
   .command('new <name>')
