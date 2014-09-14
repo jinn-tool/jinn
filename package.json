@@ -22,10 +22,13 @@
     "url": "https://github.com/digitalsadhu/jinn/issues"
   },
   "homepage": "https://github.com/digitalsadhu/jinn",
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "^2.5.5"
+  },
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.3.0",
+    "envoodoo": "^2.0.1",
     "exec": "^0.1.2",
     "gulp": "^3.8.7"
   },
