@@ -8,80 +8,96 @@ var program = require('commander')
   , chalk   = require('chalk')
   , exec    = require('exec')
   , pjson   = require('./package.json')
+  , vasync  = require('vasync')
 
-//modules
-var jshintPlugin       = require('jinn-jshint')
-  , gitignorePlugin    = require('jinn-gitignore')
-  , envPlugin          = require('jinn-env')
-  , editorconfigPlugin = require('jinn-editorconfig')
-  , testPlugin         = require('jinn-test')
+var dependencies = require('./package.json').dependencies
+var modules = Object.keys(dependencies).filter(function (dep) {
+  return dep.match(/^jinn-.*$/)
+})
 
 //magic strings
 var messages = {
-  create: 'Creating new project',
-  install: 'Installing dependencies',
-  complete: 'Project created!',
-  esnext: 'including esnext'
+  logo: '============J==I==N==N============',
+  create: 'Creating new project ',
+  installModules: 'Installing modules',
+  installDependencies: 'Installing dependencies',
+  complete: 'Project created, run cd '
 }
 
 //paths
 var sources = {
-  base: __dirname + '/assets/base/**/*',
-  esnext: __dirname + '/assets/esnext/**/*'
+  base: __dirname + '/assets/base/**/*'
+}
+
+function error(message) {
+  console.error(chalk.red(message))
 }
 
 function notify(message) {
-  console.log(chalk.green('-->',message))
+  console.log(chalk.cyan('-->',message))
 }
 
-function installDependencies(appname) {
-  notify(messages.install)
+function installDependencies(appname, callback) {
+  console.log(chalk.green(messages.installDependencies))
 
-  exec('cd ' + appname + ' && npm install', function () {
-    notify(messages.complete)
-    process.exit(0)
-  })
+  exec('cd ' + appname + ' && npm install', callback)
 }
 
-function installModules(appname) {
+function installModules(appname, callback) {
+  console.log(chalk.green(messages.installModules))
+
   var jinnObject = {
     appname: appname,
     log: notify,
     options: program
   }
 
-  jshintPlugin(jinnObject, function () {
-    gitignorePlugin(jinnObject, function () {
-      envPlugin(jinnObject, function() {
-        editorconfigPlugin(jinnObject, function() {
-          testPlugin(jinnObject, function() {
-            installDependencies(appname)
-          })
-        })
-      })
-    })
+  var pipeline = {
+    'func': function (module, done) {
+      require(module)(jinnObject, done)
+    },
+    'inputs': modules
+  }
+
+  vasync.forEachPipeline(pipeline, function (err) {
+    if (err) return error(err.message)
+    installDependencies(appname, callback)
   })
 }
 
 function newProject(appname) {
-  console.log(chalk.green(messages.create))
+  console.log(chalk.bold.white.bgMagenta(messages.logo))
+  console.log(chalk.green(messages.create + appname), '\n')
 
   gulp.src([sources.base], {dot: true})
     .pipe(gulp.dest(process.cwd() + '/' + appname))
     .on('end', function () {
-      installModules(appname)
+      installModules(appname, function () {
+        console.log(chalk.green('\n' + messages.complete + appname))
+        console.log(chalk.bold.white.bgMagenta(messages.logo))
+        process.exit(0)
+      })
     })
 }
 
 program
   .version(pjson.version)
-  .option('-e, --esnext', 'Add esnext support through the traceur compiler')
-  .option('-j, --jshint', 'Add jshint support with opionated defaults')
-  .option('-E, --env', 'Add env support via the envoodoo module')
-  .option('-d, --editorconfig', 'Add editorconfig support with opionate defaults')
-  .option('-u, --test', 'Adds a testem based test harness for badass testing')
+
+//register each modules command line flags
+modules.forEach(function (module) {
+  var mod = require(module)
+  program.option(mod.command.flags, mod.command.description)
+})
+
+  // DONE
+  // .option('-j, --jshint', 'Add jshint support with opionated defaults')
+  // .option('-E, --env', 'Add env support via the envoodoo module')
+  // .option('-d, --editorconfig', 'Add editorconfig support with opionate defaults')
+  // .option('-u, --test', 'Adds a testem based test harness for badass testing')
+  // .option('-G, --gitignore', 'Adds a gitignore file')
 
   // TODO
+  // .option('-e, --esnext', 'Add esnext support through the traceur compiler')
   // .option('-h, --heroku', '')
   // .option('-b, --browserify', '')
   // .option('-c, --coffee', '')

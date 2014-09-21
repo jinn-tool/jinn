@@ -34,7 +34,8 @@
     "jinn-env": "git://github.com/jinn-tool/jinn-env",
     "jinn-gitignore": "git://github.com/jinn-tool/jinn-gitignore",
     "jinn-jshint": "git://github.com/jinn-tool/jinn-jshint",
-    "jinn-test": "git://github.com/jinn-tool/jinn-test"
+    "jinn-test": "git://github.com/jinn-tool/jinn-test",
+    "vasync": "^1.6.0"
   },
   "preferGlobal": "true",
   "bin": {
