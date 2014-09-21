@@ -28,9 +28,13 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commander": "^2.3.0",
-    "envoodoo": "^2.0.1",
     "exec": "^0.1.2",
-    "gulp": "^3.8.7"
+    "gulp": "^3.8.7",
+    "jinn-editorconfig": "git://github.com/jinn-tool/jinn-editorconfig",
+    "jinn-env": "git://github.com/jinn-tool/jinn-env",
+    "jinn-gitignore": "git://github.com/jinn-tool/jinn-gitignore",
+    "jinn-jshint": "git://github.com/jinn-tool/jinn-jshint",
+    "jinn-test": "git://github.com/jinn-tool/jinn-test"
   },
   "preferGlobal": "true",
   "bin": {
