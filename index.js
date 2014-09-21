@@ -67,7 +67,7 @@ function newProject(appname) {
   console.log(chalk.green(messages.create))
 
   gulp.src([sources.base], {dot: true})
-    .pipe(gulp.dest(process.cwd() + '/' + name))
+    .pipe(gulp.dest(process.cwd() + '/' + appname))
     .on('end', function () {
       installModules(appname)
     })
