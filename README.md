@@ -75,7 +75,7 @@ We include various metafiles with project scaffolds. Browse the assets folder in
 
 ### Testing
 
-We use [testem](https://github.com/airportyh/testem) and [mocha](http://visionmedia.github.io/mocha/) to provide a kick ass test environment. From the root
+We use [testem](https://github.com/airportyh/testem) and [mocha](http://mochajs.org/) to provide a kick ass test environment. From the root
 of the project just run:
 ```
 npm test
